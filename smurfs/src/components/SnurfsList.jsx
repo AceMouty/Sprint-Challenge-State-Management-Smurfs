@@ -5,7 +5,6 @@ import { getSmurfs } from '../store/actions';
 import Smurf from './Smurf'
 
 function SmurfsList({ state, getSmurfs}) {
-	console.log("FROM SMURF LIST", state.smurfs)
 	useEffect(() => {
 		getSmurfs()
 	}, [getSmurfs])

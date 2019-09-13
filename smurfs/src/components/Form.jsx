@@ -24,6 +24,7 @@ function Form({ postSmurf }) {
 	const submitHandler = e => {
 		e.preventDefault();
 		postSmurf(smurf);
+		setSmurf({name: "", age: "", height: ""})
 	}
 	return(
 		<React.Fragment>
