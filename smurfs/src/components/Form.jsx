@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { postSmurf } from '../store/actions/index'
 
-function Form() {
+function Form({ postSmurf }) {
 
 	// Create State to trackInputs
 	const [smurf, setSmurf] = useState({name: "", age: "", height: ""})
@@ -20,9 +21,13 @@ function Form() {
 		
 	}
 	// Create a submitHadler
+	const submitHandler = e => {
+		e.preventDefault();
+		postSmurf(smurf);
+	}
 	return(
 		<React.Fragment>
-			<form action="">
+			<form onSubmit={submitHandler}>
 				<input 
 					type="text"
 					placeholder="Enter Smurf Name"
@@ -50,4 +55,5 @@ function Form() {
 	)
 }
 
-export default Form;
+// Connect component to the store
+export default connect(null, {postSmurf})(Form);
